@@ -32,6 +32,13 @@ function RootNavigator() {
           headerStyle: { backgroundColor: colors.background },
         }}
       />
+      <Stack.Screen
+        name="auth/login"
+        options={{
+          headerShown: false,
+          animation: 'fade',
+        }}
+      />
     </Stack>
   );
 }
