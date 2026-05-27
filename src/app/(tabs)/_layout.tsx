@@ -1,29 +1,30 @@
-import { Tabs, useRouter } from 'expo-router';
+import { Tabs, useRouter, usePathname } from 'expo-router';
 import { useEffect } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/theme';
 import { useAuth } from '@/context/AuthContext';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 
 function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
+  const pathname = usePathname();
   const { user, loading } = useAuth();
 
   useEffect(() => {
-    if (!loading && !user) {
-      router.replace('/auth/login' as never);
+    if (!loading && !user && !pathname?.startsWith('/auth')) {
+      router.push('/auth/login' as any);
     }
-  }, [user, loading, router]);
+  }, [user, loading, pathname, router]);
 
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <Text>Loading...</Text>
+        <ActivityIndicator size="large" color={Colors.light.primary} />
       </View>
     );
   }
 
-  if (!user) {
+  if (!user && !pathname?.startsWith('/auth')) {
     return null;
   }
 
