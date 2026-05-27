@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAxf9LQ3hW1o6pTvJRMDf7TQzf9p1_cX9U",
+  apiKey: "AIzaSyB2CJ1fRkOI-vKUVMXkWaa1_apQh1NtPbk",
   authDomain: "app-sewa-mobil.firebaseapp.com",
   projectId: "app-sewa-mobil",
-  storageBucket: "app-sewa-mobil.appspot.com",
-  messagingSenderId: "106705998490583951069",
-  appId: "1:106705998490583951069:web:8a1c9b2d9c56eef7c90bf0"
+  storageBucket: "app-sewa-mobil.firebasestorage.app",
+  messagingSenderId: "976616352264",
+  appId: "1:976616352264:web:ef10df3eff16f9f6313fbd"
 };
 
 export const app = initializeApp(firebaseConfig);
